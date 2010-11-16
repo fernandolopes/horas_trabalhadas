@@ -1,5 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :users
+
+  map.resources :sessions
+
+  map.resources :users do |usr|
+    usr.resources :time_logs
+    usr.resources :project_memberships
+  end
+
+
+  map.resources :projects do |proj|
+    proj.resources :task_types do |tt|
+      tt.resources :time_logs
+    end
+    proj.resources :project_memberships
+  end
+
+  map.root :controller => "projects"  
 
   # The priority is based upon order of creation: first created -> highest priority.
 

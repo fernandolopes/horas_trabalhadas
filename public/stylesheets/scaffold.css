@@ -52,3 +52,14 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 
+#projects {
+  width: 200px;
+  float: left;
+  height: 100%
+}
+
+#contents {
+  margin-left: 205px;
+  height: 100%;
+}
+
