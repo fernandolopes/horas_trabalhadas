@@ -48,11 +48,12 @@ class ProjectMembershipsController < ApplicationController
     respond_to do |format|
       if @project_membership.save
         flash[:notice] = 'ProjectMembership was successfully created.'
-        format.html { redirect_to(@project_membership) }
-        format.xml  { render :xml => @project_membership, :status => :created, :location => @project_membership }
+        format.html { redirect_to(project_project_membership_path(
+            @project_membership.project, @project_membership)) }
+        #format.xml  { render :xml => @project_membership, :status => :created, :location => @project_membership }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @project_membership.errors, :status => :unprocessable_entity }
+        #format.xml  { render :xml => @project_membership.errors, :status => :unprocessable_entity }
       end
     end
   end
