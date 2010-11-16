@@ -1,20 +1,16 @@
-<h1>Editing task_type</h1>
+<h1>Editando tipo de tarefa</h1>
 
-<% form_for(@task_type) do |f| %>
+<% form_for([:project, @task_type]) do |f| %>
+  <%= f.hidden_field :project_id %>
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    Projeto: <%= @task_type.project.name %>
   </p>
+  <p><%= f.label :name, "Nome"  %> : <%= f.text_field :name %></p>
   <p>
-    <%= f.label :project %><br />
-    <%= f.text_field :project %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
+    <%= f.submit "Atualizar" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @task_type %> |
-<%= link_to 'Back', task_types_path %>
+<%= link_to 'Voltar', @task_types.project %>
