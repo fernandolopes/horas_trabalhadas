@@ -24,7 +24,7 @@
 <ul>
 <% @current_user.projects.each do |project| %>
 <li><%= link_to project.name, project %> - <%= link_to "Registrar Horas",
-	user_time_logs_path(@current_user,:project_id => project.id) %></li>
+	new_user_time_log_path(@current_user,:project_id => project.id) %></li>
 <% end %>
 </ul>
 </div>

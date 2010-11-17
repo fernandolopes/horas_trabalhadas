@@ -1,4 +1,14 @@
 class TaskTypesController < ApplicationController
+
+  def index
+	@task_types = TaskType.find.all_by_project_id params[:project_id]
+	respond_to do |format|
+		format.js { render :layout => false, :inline => "<option></option>
+			<%= options_from_collection_for_select @task_types, :id, :name,
+				params[:project_id] %>" }
+	end
+  end
+
   # GET /task_types/new
   # GET /task_types/new.xml
   def new
